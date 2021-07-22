@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class MainUIBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool pinned = false;
 
-    // Update is called once per frame
-    void Update()
+    private string rvScript = "RadialView";
+    private string shScript = "SolverHandler";
+
+    public void TogglePin()
     {
-        
+        pinned = !pinned;
+
+        (GetComponent(rvScript) as MonoBehaviour).enabled = !pinned;
+        (GetComponent(shScript) as MonoBehaviour).enabled = !pinned;
+
     }
 }
